@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class zombieControlScript : MonoBehaviour
+public class ControlSoldier : MonoBehaviour
 {
     CubeControl player;
     Animator zombieAnimator;
     enum ZombieState { Idle, Attack, Follow }
     ZombieState currentlyIs = ZombieState.Idle;
-    private float aggroRadius = 10;
-    private float walkingSpeed = 0.3f;
+    private float aggroRadius = 100;
+    private float walkingSpeed = 1f;
     private float meleeDistance = 1;
 
     // Start is called before the first frame update
