@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Sprites;
 using UnityEngine;
 
 public class BallControlScript : MonoBehaviour
 {
     Rigidbody rb;
-    float kickStrength = 10;
+    float kickStrength = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +16,21 @@ public class BallControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+ 
+    }
+
+    void KickBall(Transform kicker)
+    {
+        rb.AddForce(kickStrength * kicker.forward, ForceMode.Impulse);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Plane")
+        { print("Boing!!"); }
+        else
         {
-            rb.AddForce(kickStrength * Vector3.up, ForceMode.Impulse);
+            print("Ouch");
+            KickBall(collision.transform);
         }
-        
     }
 }
