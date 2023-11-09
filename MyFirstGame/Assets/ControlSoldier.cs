@@ -8,8 +8,8 @@ public class ControlSoldier : MonoBehaviour
     Animator zombieAnimator;
     enum ZombieState { Idle, Attack, Follow }
     ZombieState currentlyIs = ZombieState.Idle;
-    private float aggroRadius = 100;
-    private float walkingSpeed = 1f;
+    private float aggroRadius = 300;
+    private float walkingSpeed = 2f;
     private float meleeDistance = 1;
 
     // Start is called before the first frame update
@@ -56,4 +56,5 @@ public class ControlSoldier : MonoBehaviour
 
 
     }
+
 }
