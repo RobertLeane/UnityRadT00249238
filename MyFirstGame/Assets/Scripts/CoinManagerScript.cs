@@ -18,40 +18,40 @@ public class CoinManagerScript : MonoBehaviour
         new Vector3(-2.17f, 0.5f, -20.82f) //Coin 5
     };
 
-    // List to store references to instantiated coins
+    
     List<Transform> coins = new List<Transform>();
 
     // Start is called before the first frame update
     void Start()
     {
-        // Instantiate coins at the specified positions
+        
         foreach (Vector3 localPosition in coinLocalPositions)
         {
-            // Convert local position to world space
+            
             Vector3 worldPosition = transform.TransformPoint(localPosition);
 
-            // Instantiate coin
+            
             Transform newCoin = Instantiate(coinTemplate, worldPosition, Quaternion.identity);
-            coins.Add(newCoin); // Add the coin to the list
+            coins.Add(newCoin); 
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check the distance between the player and each coin
-        foreach (Transform coin in coins.ToArray()) // Use ToArray to create a copy of the list
+        
+        foreach (Transform coin in coins.ToArray()) 
         {
             if (coin == null)
             {
-                // The coin has been destroyed, remove it from the list
+               
                 coins.Remove(coin);
                 continue;
             }
 
             float distance = Vector3.Distance(coin.position, player.position);
 
-            // Activate/deactivate the coin based on the distance
+            
             coin.gameObject.SetActive(distance <= activationRadius);
         }
     }

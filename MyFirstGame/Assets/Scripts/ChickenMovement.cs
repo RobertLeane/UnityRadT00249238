@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChickenMovement : MonoBehaviour
 {
-    private Animator animator; // Declare the animator variable at the class level
+    private Animator animator; 
 
     // Start is called before the first frame update
     void Start()
